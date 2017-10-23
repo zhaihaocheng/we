@@ -1,0 +1,8 @@
+.col-md-1{
+      background: sandybrown; border: solid 1px;
+}
+.col-md-4{
+         background: cadetblue;  border: solid 1px;
+}
+   .col-md-6{ background: saddlebrown; border: solid 1px }
+.col-md-8{     background: darkviolet; border: solid 1px}
