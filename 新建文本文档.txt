@@ -1,0 +1,11 @@
+  block content   能引入模块  extends layout
+
+ -var a=2
+  -if(a==1)
+    h1 #{a}
+  -else
+    h1 nothing
+
+call  改变函数作用域
+_ $ 可以当做变量
+ifrome src=‘网站’
