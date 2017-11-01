@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.1.1.js"></script>
+	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <style type="text/css">
+     #v{ width: 600px; float: left; }
+    .glyphicon{ marker-left: -30px; }
+  </style>
+
+</head>
+  
+<body>
+<input type="text" id="v" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><button id="we" class="btn btn-default">搜索</button>
+
+
+
+<div id="be"></div>
+<script>
+       $(function(){
+   $('#we').click( function(){
+   var c=$('#v').val();
+   
+
+    $.ajax({
+        url:"http://localhost:3000/item/submit",
+        data:{b:c},
+        type:'post',
+        dataType:'json',
+        success:function(data){
+        	for(var i in data){
+        		$('#be').html('')
+ $('#be').append("<p>"+data[i].name+"</p>")
+
+        	}
+                
+        }
+     })
+
+
+
+   })
+
+    
+  })
+
+</script>
+</body>
+</html>
