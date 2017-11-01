@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+<input type="text" class="name"><input type="text" class="title"><button class="submit">zxc</button>
+<div class=".list_wrap"></div>
+<script>
+ 
+
+$(function(){
+     $(".submit").click(function(){
+        var name = $(".name").val(),
+            title = $(".title").val()
+         console.log(name,title)
+        $.ajax({
+            type:"post",
+            url:"http://localhost:3000/item/submit",
+            data:{name:name,title:title},
+            success:function(data){
+            	console.log(data)
+                $(".name").val("");
+                $(".title").val("");
+
+               
+            }
+        });
+    });
+  
+  
+
+
+   
+});
+</script>
+</body>
+</html>
