@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+  
+   .box{ width: 550px; text-align: center;  margin: 50px auto}
+	</style>
+	<script src="jquery-3.1.1.js"></script>
+	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="box">
+	<div>
+	<select>
+	<option value="1">行业新闻</option>
+		<option value="2">行业资讯</option>
+	</select>
+	<button type="submit" class="btn btn-primary" id="su">Submit</button>
+	 
+	 <script>
+
+
+	      $(function(){	      	
+            $('#su').click(function(){	      
+	        var h=$('option:checked').val();
+             $.ajax({
+                 url:"http://localhost:3000/item/gain",
+                 type:'post',
+                 data:{},
+                 dataType:'json',
+                 success:function(data){
+                 	console.log(data)
+                     for(var i in data){
+                             if(h==1){
+                      if(data[i].uid==1){
+                 
+
+                     		$('.box').append("<span>"+data[i].title+"</span><span>"+data[i].time+"</span><span>"+data[i].writer+"</span><span>"+data[i].concent+"</span></br>")
+                     	}
+
+                             }  
+                             if(h==2){
+   if(data[i].uid==2){ 
+                     		$('.box').append("<span>"+data[i].title+"</span><span>"+data[i].time+"</span><span>"+data[i].writer+"</span><span>"+data[i].concent+"</span></br>")
+                     	}
+
+                             }
+                     	
+                 
+  
+
+                     }
+
+                       }
+
+         })    })
+
+
+	      })
+      
+
+	 </script>
+</body>
+</html>
